@@ -83,3 +83,30 @@ add([function(){ return [10,20]; }, function(){ return [30,[40, "50"]]; }])
 add(10)
 add()
 add(10,20,30,40,50)
+
+Constructor Functions
+    functions that behave like classes
+    NO syntax differences
+    Invoked with the 'new' keyword
+        this -> a new object
+        this -> is returned by default
+    Naming conventions - proper case
+
+    example:
+        function Employee(id, name, salary){
+            //this -> new object
+            if (this.constructor !== Employee)
+                return new Employee(id, name, salary);
+
+            this.id = id;
+            this.name = name;
+            this.salary = salary;
+
+            this.display = function(){
+                console.log(this.id, this.name, this.salary);
+            }
+            //this -> object is returned by default
+        }
+
+Closures
+    
