@@ -1,0 +1,85 @@
+
+Visual Studio Code / Web Storm / Atom
+Node.js (LTS 12.X)
+Chrome
+
+Application for the Browser
+    Presentation
+    State
+    Behavior
+
+
+Server driven web applications
+
+JavaScript
+
+Data Types
+    Number, String, Boolean, Object, Undefined, Function
+
+Programming Constructs
+    var, if then else, switch case, for, while, throw, try catch finally, function
+
+APIs
+    Array, Math, Date, RegEx, Timer (setTimeout, clearTimeout, setInterval, clearInterval), Error
+
+Unique Aspects
+
+    Object
+        Disctionary / Map
+        Key Value pair collection
+        Key can be string / number
+        Attributes can be accessed using the dot (.) notation / square brackets ([]) notation
+        Are dynamic
+        A method is nothing but an attribute with a function as the value
+
+    Function
+        is also an object
+            functions can have attributes
+            functions can have methods
+            functions can be assigned to variables
+            functions can be passed as arguments to other functions
+            functions can be returned as return value from another function
+
+        variadic functions are supported
+
+        arguments & this
+            are the two implicit values passed to the function
+
+            arguments
+                array like object containing all the values passed to the function
+                indexer, .length attribute supported
+
+            this
+                invocation context
+                based on 'how' the function is invoked
+                    - As a method of an object, 
+                        this -> object
+                
+                    - As a function
+                        this -> global scope (window)
+
+                    - using the 'call' method of the function
+
+                    - using the 'apply' method of the function
+
+function add(){
+    function parseArg(n){
+        if (typeof n === 'function') return parseArg(n());
+        if (Array.isArray(n)) return add.apply(undefined, n);
+        return (isNaN(n)) ?  0 : parseInt(n);
+    }
+    return arguments.length <= 1 ? parseArg(arguments[0]) : parseArg(arguments[0]) + add([].slice.call(arguments,1));
+}
+
+add(10,20)
+add(10, "20")
+add(10, "abc")
+add([10,20], [30,40])
+add([10,20], [30,"40"])
+add([10,20], [30,"abc"])
+add([10,20], [30,[40, "50"]])
+add(function(){ return [10,20]; }, function(){ return [30,[40, "50"]]; })
+add([function(){ return [10,20]; }, function(){ return [30,[40, "50"]]; }])
+add(10)
+add()
+add(10,20,30,40,50)
