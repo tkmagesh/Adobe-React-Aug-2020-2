@@ -110,3 +110,59 @@ Constructor Functions
 
 Closures
     
+Prototypal Inheritance
+    One object acts a base object (prototype) for a family of objects
+    CF.prototype => base object
+
+    var x = new CF();
+    x.__proto__ === CF.prototype
+
+    function Employee(id, name, salary){
+        this.id = id;
+        this.name = name;
+        this.salary = salary;
+    }
+    
+    typeof Employee.prototype
+    
+    Employee.prototype['city'] = 'Bangalore'
+    
+    Employee.prototype.display = function(){
+        console.log(this.id, this.name, this.salary, this.city);
+    }
+    
+    var emp = new Employee(100, 'Magesh', 10000)
+
+ES6 (ESNext, ECMAScript6)
+1. let
+2. const
+3. Array destructuring 
+4. Rest operator (Array)
+5. Spread operator (Array)
+6. Object destructuring 
+7. Rest operator (Object)
+8. Spread operator (Object)
+9. default arguments
+10. arrow functions
+11. template strings
+12. class
+
+https://es6-features.org
+
+
+var products = [
+    { id : 4, name : 'Pen', cost : 60, units : 20, category : 'Stationary'},
+    { id : 7, name : 'Ten', cost : 20, units : 60, category : 'Utencil'},
+    { id : 2, name : 'Len', cost : 40, units : 40, category : 'Stationary'},
+    { id : 8, name : 'Ken', cost : 30, units : 50, category : 'Utencil'},
+    { id : 6, name : 'Den', cost : 50, units : 70, category : 'Stationary'},
+]
+
+1. Find all the stationary products
+2. Find out the highest cost among the products
+3. Create a new list with objects containing all the attributes of the product + a new attribute called 'value' (value = cost * units)
+4. From the newly created list (problem 3), print the name and value of all the products
+
+Solve the above problems WITHOUG using any looping constructs (NO for/while/do loops)
+Hint : use the 'filter, map, reduce and forEach' methods of array
+
