@@ -1,6 +1,7 @@
 const http = require('http'),
     fs = require('fs'),
-    path = require('path');
+    path = require('path'),
+    chalk = require('chalk');
 
 const server = http.createServer(function(req /* IncomingMessage */, res /* ServerResponse */){
     const resourceName = req.url === '/' ? 'index.html' : req.url ;
@@ -18,7 +19,7 @@ const server = http.createServer(function(req /* IncomingMessage */, res /* Serv
 server.listen(8080);
 
 server.on('listening', () => {
-    console.log('server listening on port 8080');
+    console.log(chalk.magenta('server listening on port 8080'));
 });
 
-console.log('server started....');
+console.log(chalk.cyan('server started....'));
