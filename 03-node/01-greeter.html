@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Greeter</title>
+    <style>
+        .error{
+            border : 1px solid red;
+            background-color:lightcoral
+        }
+    </style>
+
+    <script src="jquery-3.5.1.js"></script>
+    <script>
+    /* (function(){
+        function onBtnGreetClick(){
+            var userName = $('#txtUserName').val();
+            var greetMsg = 'Hi ' + userName + ', Have a nice day!';
+            $('#divMessage').text(greetMsg);
+        }
+        function onDocumentLoad(){
+            $('#btnGreet').click(onBtnGreetClick);
+        }
+        //$(document).ready(onDocumentLoad);
+        $(onDocumentLoad)
+    })() */
+    $(function(){
+        $('#btnGreet').click(function onBtnGreetClick() {
+            var userName = $('#txtUserName').val();
+            if (userName === ''){
+                $('#txtUserName').addClass('error');
+                $('#divMessage').text('Invalid inputs');
+                return;    
+            }
+           
+            var greetMsg = 'Hi ' + userName + ', Have a nice day!';
+            $('#divMessage').text(greetMsg);
+        });
+
+        $('#txtUserName').on('input', function(evt){
+            console.dir(evt);
+            //in the event handler, this -> domnode that triggered the event
+            //if ($(this).val() !== ''){
+            
+            if ($(evt.target).val() !== ''){
+                 $('#txtUserName').removeClass('error');
+            }
+        });
+    })
+
+    </script>
+</head>
+<body>
+    <h1>Greeter</h1>
+    <hr>
+    <label for="">User Name :</label>
+    <input type="text" name="" id="txtUserName">
+    <input type="button" value="Greet" id="btnGreet">
+    <div id="divMessage">[Greet message]</div>
+</body>
+</html>

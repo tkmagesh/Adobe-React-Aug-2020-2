@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+    body{
+        margin-left: 50px;
+    }
+    ol{
+        list-style: none;
+        width : 450px;
+        -webkit-padding-start: 0px;
+    }
+    .closed{
+        color : red;
+        text-decoration: line-through;
+        font-style: italic;
+    }
+    li{
+        border : 1px solid gray;
+        background-color: #e7e7e7;
+        padding : 10px;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        cursor : pointer;
+    }
+    </style>
+    <script src="jquery-3.5.1.js"></script>
+    <script>
+        $(function(){
+            $('#btnAddNew').click(function(){
+                var bugName = $('#txtBugName').val();
+                var $bugItem = $('<li>')
+                        .text(bugName)
+                        .hide()
+                        .appendTo('#olBugList')
+                        .fadeIn();
+            });
+
+            $('#olBugList').on('click', 'li', function(evt){
+                $(evt.target).toggleClass('closed');
+            });
+
+            $('#btnRemoveClosed').click(function(){
+                $('li.closed')
+                    .fadeOut(function(){
+                        $(this).remove();
+                    });
+            })
+        });
+    
+    </script>
+    <title>Bug Tracker</title>
+</head>
+<body>
+    <h1>Bug Tracker</h1>
+    <hr>
+    <label for="">Bug Name :</label>
+    <input type="text" name="" id="txtBugName">
+    <input type="button" value="Add New" id="btnAddNew">
+    <ol id="olBugList">
+        <li>Bug - 1</li>
+        <li class="closed">Bug - 2</li>
+    </ol>
+    <input type="button" value="Remove Closed" id="btnRemoveClosed">
+    <div id="divMessage"></div>
+</body>
+</html>
