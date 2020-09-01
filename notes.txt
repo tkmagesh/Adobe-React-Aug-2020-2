@@ -199,3 +199,32 @@ Node.js
         acc.multiply(10)
         acc.divide(2)
         console.log(acc.getResult()) => 250
+
+npm (node package manager)
+OR yarn
+
+manifest file (metadata information)
+package.json
+    name
+    version
+    author
+    repository
+    description
+    keywords
+    private
+    license
+    scripts
+    dependencies
+
+npm init - to create a package.json file
+
+to install an open source module
+    npm install <module name>
+
+
+Express
+    MVC frameworks
+
+express-generator
+   to generate a new application npx express-generator my-api-app --no-view
+
