@@ -226,5 +226,15 @@ Express
     MVC frameworks
 
 express-generator
-   to generate a new application npx express-generator my-api-app --no-view
+   to generate a new application 
+    npx express-generator my-api-app --no-view
+    cd my-api-app
+    npm install
+    npm start
+
+
+Middlewares
+    function(req, res, next){
+        
+    }
 
