@@ -166,3 +166,14 @@ var products = [
 Solve the above problems WITHOUG using any looping constructs (NO for/while/do loops)
 Hint : use the 'filter, map, reduce and forEach' methods of array
 
+
+Day-02
+jQuery
+    DOM manipulation library
+
+    jQuery (function)
+
+    $txtBox
+        .hide()
+        .val('asfadsfa')
+        .fadeIn()
