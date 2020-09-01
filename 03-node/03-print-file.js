@@ -15,7 +15,7 @@ stream.on('end', function(){
     console.log('# of chunks read = ', readCount);
 });
 
-stream.on('error', function(err){
+stream.on('error', function(){
     console.log('Something went wrong');
     console.log(err);
 });
