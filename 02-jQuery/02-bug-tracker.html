@@ -44,7 +44,10 @@
             });
 
             $('#btnRemoveClosed').click(function(){
-                $('li.closed').remove();
+                $('li.closed')
+                    .fadeOut(function(){
+                        $(this).remove();
+                    });
             })
         });
     
@@ -62,5 +65,6 @@
         <li class="closed">Bug - 2</li>
     </ol>
     <input type="button" value="Remove Closed" id="btnRemoveClosed">
+    <div id="divMessage"></div>
 </body>
 </html>
