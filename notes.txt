@@ -185,3 +185,17 @@ Node.js
     REPL
         
     COMMON JS Module system
+
+    accumulator.js
+        add(x)
+        subtract(x)
+        multiply(x)
+        divide(x)
+        getResult()
+
+    accumulator-client.js
+        acc.add(100)
+        acc.subtract(50)
+        acc.multiply(10)
+        acc.divide(2)
+        console.log(acc.getResult()) => 250
