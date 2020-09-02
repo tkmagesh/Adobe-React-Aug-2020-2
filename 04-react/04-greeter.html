@@ -15,6 +15,7 @@
     <script src="react-dom.development.js"></script>
     <script src="babel.min.js"></script>
     <script type="text/babel">
+    /*
         class Greeter extends React.Component{
             state = {
                 greetMsg : 'Hi there!',
@@ -38,6 +39,36 @@
                         <hr/>
                         <label htmlFor="">User Name :</label>
                         <input type="text" onChange={this.onTxtUserNameChange}/>
+                        <input type="button" value="Greet" onClick={this.onBtnGreetClick}/>
+                        <div className="highlight">{this.state.greetMsg}</div>
+                    </div>
+                )
+            }
+        }
+        */
+
+
+        class Greeter extends React.Component{
+
+            txtUserNameRef = React.createRef();
+
+            state = {
+                greetMsg : 'Hi there!',
+            };
+
+            onBtnGreetClick = () => {
+                const userName = this.txtUserNameRef.current.value;
+                const { msgTemplate } = this.props;
+                this.setState({greetMsg : `Hi ${userName}, ${msgTemplate}` });
+            }
+            render(){
+                
+                return(
+                    <div>
+                        <h1>Greeter</h1>
+                        <hr/>
+                        <label htmlFor="">User Name :</label>
+                        <input type="text" ref={this.txtUserNameRef} />
                         <input type="button" value="Greet" onClick={this.onBtnGreetClick}/>
                         <div className="highlight">{this.state.greetMsg}</div>
                     </div>
