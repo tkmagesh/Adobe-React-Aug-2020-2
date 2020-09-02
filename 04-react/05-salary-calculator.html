@@ -46,11 +46,7 @@
             }
             render(){
                 const { basic, hra, da, tax, salary } = this.state;
-                const salaryEle = salary === 0 ? null : (
-                    <td className={salary < 10000 ? 'poorSalary' : 'goodSalary'}>
-                        {salary}
-                    </td>
-                );
+                
                 return(
                     <div>
                         <h1>Salary Calculator</h1>
@@ -79,22 +75,37 @@
                             <div className="field">
                                 <input type="button" value="Calculate" onClick={this.onBtnCalculateClick}/>
                             </div>
-                            <div className="field">
-                                <table>
-                                    <tbody>
-                                        <tr>
-                                            <td>{basic}</td>
-                                            <td>{hra}</td>
-                                            <td>{da}</td>
-                                            <td>{tax}</td>
-                                            { salaryEle }
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                            <SalaryCalculatorResult {...this.state} />
                         </section>
                     </div>
                 )
+            }
+        }
+
+        class SalaryCalculatorResult extends React.Component{
+            
+            render(){
+                const { basic, hra, da, tax, salary } = this.props;
+                const salaryEle = salary === 0 ? null : (
+                    <td className={salary < 10000 ? 'poorSalary' : 'goodSalary'}>
+                        {salary}
+                    </td>
+                );
+                return(
+                    <div className="field">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>{basic}</td>
+                                    <td>{hra}</td>
+                                    <td>{da}</td>
+                                    <td>{tax}</td>
+                                    { salaryEle }
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                );
             }
         }
         ReactDOM.render(<SalaryCalculator/>, document.getElementById('root'));
