@@ -238,3 +238,11 @@ Middlewares
         
     }
 
+
+React
+    JavaScript library for creating complex UI applications for the browser
+
+    Component
+        = Data (Model) + Presentation (View) + UI Behavior
+        = Model View synchronization
+        = Rendering Performance
