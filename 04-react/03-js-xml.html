@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>VDOM Demo</title>
+    <script src="react.development.js"></script>
+    <script src="react-dom.development.js"></script>
+    <script src="babel.min.js"></script>
+    <style>
+        .highlight{
+            color : blue;
+        }
+    
+    </style>
+
+    <script type="text/babel">
+        var counter = 0;
+        function onBtnRenderClick(){
+            ++counter;
+            const appEle = (
+                <div>
+                    <h1 className="highlight">React.js!</h1>
+                    <hr/>
+                    <div>
+                        <label htmlFor="">Counter : </label>
+                        <span>{counter}</span>
+                    </div>
+                    <div>
+                        <h3>Introduction</h3>
+                        <p>Irure velit laboris reprehenderit occaecat exercitation reprehenderit. Aliquip sunt duis anim anim Lorem minim Lorem commodo quis veniam exercitation eu. Occaecat aute irure consectetur anim cillum.</p>
+                        <p>Esse Lorem est culpa irure minim quis ea. Reprehenderit enim cillum amet dolore ullamco irure. Deserunt tempor qui velit eiusmod nisi ullamco nulla exercitation pariatur veniam adipisicing ea do laboris. Consequat eu esse labore ea proident sunt labore veniam. Laboris ullamco in reprehenderit enim Lorem sit nisi exercitation dolore in proident eu enim.</p>
+                        <p>Labore aliquip anim ad eiusmod cillum. Elit voluptate nulla sunt sint enim duis minim fugiat ut in duis qui do eiusmod. Eu irure do eiusmod minim anim adipisicing esse. Cupidatat proident mollit dolor laboris non Lorem. Nulla velit exercitation ea commodo culpa consequat nisi pariatur aliqua incididunt eiusmod cillum mollit ad.</p>
+                    </div>
+                    <div>
+                        <h3>Advantages</h3>
+                        <ol>
+                            <li>Efficient</li>
+                            <li>Declarative</li>
+                        </ol>
+                    </div>
+                </div>
+            );
+            //console.dir(appEle);
+            ReactDOM.render(appEle, document.getElementById('root'));
+        }
+        function onDocumentLoad(){
+            var btnRender = document.getElementById('btnRender');
+            btnRender.addEventListener('click',onBtnRenderClick);
+        }
+        window.addEventListener('load', onDocumentLoad);
+    </script>
+</head>
+<body>
+    <input type="button" value="Render" id="btnRender">
+    <div id="root">
+        <h1 class="highlight">Dummy Header</h1>
+    </div>
+</body>
+</html>
