@@ -16,8 +16,14 @@
             display : block;
         }
         td{
-            font-size: 18pt;
+            font-size: 24pt;
             padding-right: 10px;
+        }
+        .goodSalary{
+            color : green;
+        }
+        .poorSalary{
+            color : red;
         }
     </style>
     <script src="react.development.js"></script>
@@ -40,6 +46,11 @@
             }
             render(){
                 const { basic, hra, da, tax, salary } = this.state;
+                const salaryEle = salary === 0 ? null : (
+                    <td className={salary < 10000 ? 'poorSalary' : 'goodSalary'}>
+                        {salary}
+                    </td>
+                );
                 return(
                     <div>
                         <h1>Salary Calculator</h1>
@@ -76,7 +87,7 @@
                                             <td>{hra}</td>
                                             <td>{da}</td>
                                             <td>{tax}</td>
-                                            <td>{salary}</td>
+                                            {  }
                                         </tr>
                                     </tbody>
                                 </table>
