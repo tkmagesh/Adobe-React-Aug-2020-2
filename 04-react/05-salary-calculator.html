@@ -36,7 +36,8 @@
                 hra : 0,
                 da : 0,
                 tax : 0,
-                salary : 0
+                salary : 0,
+                rangeValue : 0
             };
             onBtnCalculateClick = () => {
                 const { basic, hra, da, tax } = this.state;
@@ -49,6 +50,20 @@
                 
                 return(
                     <div>
+                        {/* <input 
+                            type="range" 
+                            value={this.state.rangeValue} 
+                            min="0" max="100" 
+                            onChange={evt => this.setState({ rangeValue : evt.target.valueAsNumber })} 
+                        /> */}
+                        
+                        {/* 
+                            <input 
+                                type="range" 
+                                defaultValue="0" 
+                                min="0" max="100" 
+                            /> 
+                        */}
                         <h1>Salary Calculator</h1>
                         <hr/>
                         <section>
@@ -69,6 +84,7 @@
                                 onValueChange={ value => this.setState({tax : value })}
                                 type="range"
                                 min="0" max="30"
+                                defaultValue="0"
                             />
                             <div className="field">
                                 <input type="button" value="Calculate" onClick={this.onBtnCalculateClick}/>
