@@ -11,17 +11,24 @@
     <script type="text/babel">
         class Products extends React.Component{
             render() {
-                const productNames = [ 'Pen', 'Pencil', 'Marker' ];
+                const productNames = [ ];
+                /* 
                 const productItems = [];
                 for (let index = 0; index < productNames.length; index++) {
                     const productName = productNames[index],
                         productItem = (<li key={index}>{productName}</li>);
                     productItems.push(productItem);
-                }
+                } 
+                */
+                const productItems = productNames.map((productName, index) => (<li key={index}>{productName}</li>));
+
                 return(
                     <div>
                         <h1>Products</h1>
                         <hr/>
+                        <label htmlFor="">Product : </label>
+                        <input type="text" />
+                        <input type="button" value="Add New" />
                         <ol>
                             {productItems}
                         </ol>
