@@ -19,7 +19,7 @@
                     <div>
                         <input type="checkbox" checked={showTimer} onChange={evt =>  this.setState({showTimer : evt.target.checked })} />
                         <span>Show Timer</span>
-                        { showTimer ? <Timer/> : null }
+                        { showTimer ? <Timer showTimer={showTimer}/> : null }
                     </div>
                 )
             }
@@ -42,6 +42,7 @@
                 clearInterval(this.timerId);
             }
             shouldComponentUpdate(nextProps, nextState){
+                //console.log(nextProps, nextState);
                 return true;
             }
             render() {

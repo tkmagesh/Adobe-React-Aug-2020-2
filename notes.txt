@@ -268,3 +268,17 @@ Component Lifecycle Events
 
     unmounting
         - componentWillUnmount
+
+React Hooks
+    functions to manage side effects in functional components
+    Hook function names must have the prefix 'use'
+    Builtin Hooks
+        useState
+        useEffect
+        useReducer
+        useMemo
+        useRef
+
+
+Pure Functions
+    - A function is a pure function if the function invocation can be replaced with its result
