@@ -101,6 +101,7 @@
                 const { productNames, newProductName } = this.state;
                 const updatedProductNames = [ ...productNames, newProductName ];
                 this.setState({ productNames: updatedProductNames });
+                this.props.onListChange(updatedProductNames);
             }
             render() {
                 const { productNames } = this.state;
@@ -122,18 +123,29 @@
             }
         }
 
-        const ProductsCount = () => (
-            <div>
-                <span> Count : </span>
-                <span>0</span>
-            </div>
-        )
+        const ProductsCount = (props) => {
+            const count = props.data;
+            return (
+                <div>
+                    <span>Count : </span>
+                    <span>{count}</span>
+                </div>
+            )
+        };
+
+        const App = () => {
+            const [ productNames, setProductNames ] = React.useState([]);
+            const productListChanged = (productList) => setProductNames(productList);
+            return (
+                <div>
+                    <ProductsCount data={productNames.length}/>
+                    <Products onListChange={productListChanged}/>
+                </div>
+            )
+        }
 
         ReactDOM.render(
-            <div>
-                <ProductsCount/>
-                <Products/>
-            </div>
+            <App/>
         , document.getElementById('root'));
     </script>
 </head>
