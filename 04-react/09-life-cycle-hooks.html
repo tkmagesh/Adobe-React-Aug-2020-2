@@ -122,7 +122,19 @@
             }
         }
 
-        ReactDOM.render(<Products/>, document.getElementById('root'));
+        const ProductsCount = () => (
+            <div>
+                <span> Count : </span>
+                <span>0</span>
+            </div>
+        )
+
+        ReactDOM.render(
+            <div>
+                <ProductsCount/>
+                <Products/>
+            </div>
+        , document.getElementById('root'));
     </script>
 </head>
 <body>
