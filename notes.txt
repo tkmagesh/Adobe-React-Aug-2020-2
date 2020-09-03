@@ -282,3 +282,13 @@ React Hooks
 
 Pure Functions
     - A function is a pure function if the function invocation can be replaced with its result
+
+
+Create a 'ProductsCount' component to display the products count
+Display both the Products and ProductsCount the application
+The 'ProductsCount' component should NOT BE part of the 'Products' component
+
+When you manage the state in the component
+    - we are localizing the state for that component and its children
+        Any change to that state can be easily recognized that that component or its children
+        Recognizing the state changes by any other component will be very diffcult
