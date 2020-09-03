@@ -18,17 +18,19 @@
         var store = Redux.createStore(spinnerReducer);
 
         const Spinner = (props) => {
-            const { value, dispatch, down, up } = props;
+            const { value, dispatch, actionCreators } = props;
             const [delta, setDelta] = React.useState(0);
+            /* const actionDispatchers = Redux.bindActionCreators(actionCreators, dispatch);
+            const { up, down } = actionDispatchers; */
+
+            const { up, down } = Redux.bindActionCreators(actionCreators, dispatch);
 
             const onDownClick = () => {
-                const action = down(delta);
-                dispatch(action)
+                down(delta);
             };
 
             const onUpClick = () => {
-                const action = up(delta);
-                dispatch(action);
+                up(delta);
             };
             
             return(
@@ -59,7 +61,7 @@
 
         function renderApp(){
             const value = store.getState();
-            ReactDOM.render(<Spinner value={value} dispatch={store.dispatch} {...spinnerActionCreators }/>
+            ReactDOM.render(<Spinner value={value} dispatch={store.dispatch} actionCreators={spinnerActionCreators}/>
                 , document.getElementById('root'));
         }
         renderApp();

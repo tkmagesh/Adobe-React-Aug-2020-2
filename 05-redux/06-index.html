@@ -18,18 +18,9 @@
         var store = Redux.createStore(spinnerReducer);
 
         const Spinner = (props) => {
-            const { value, dispatch, down, up } = props;
+            const { value, dispatch, actionCreators } = props;
             const [delta, setDelta] = React.useState(0);
-
-            const onDownClick = () => {
-                const action = down(delta);
-                dispatch(action)
-            };
-
-            const onUpClick = () => {
-                const action = up(delta);
-                dispatch(action);
-            };
+            const { up, down } = Redux.bindActionCreators(actionCreators, dispatch);
             
             return(
                 <div>
@@ -38,9 +29,9 @@
                     <label>Delta : </label>
                     <input type="number" value={delta} onChange={ evt => setDelta(evt.target.valueAsNumber || 0)} />
                     <br/>
-                    <input type="button" value="DOWN" onClick={onDownClick}/>
+                    <input type="button" value="DOWN" onClick={() => down(delta)}/>
                     <span> [ {value} ] </span>
-                    <input type="button" value="UP" onClick={onUpClick}/>
+                    <input type="button" value="UP" onClick={() => up(delta)}/>
                 </div>
             )
         }
@@ -59,7 +50,7 @@
 
         function renderApp(){
             const value = store.getState();
-            ReactDOM.render(<Spinner value={value} dispatch={store.dispatch} {...spinnerActionCreators }/>
+            ReactDOM.render(<Spinner value={value} dispatch={store.dispatch} actionCreators={spinnerActionCreators}/>
                 , document.getElementById('root'));
         }
         renderApp();
