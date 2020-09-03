@@ -32,12 +32,17 @@
             componentDidMount(){
                 console.log('Timer mounted');
                 this.timerId = setInterval(() => {
+                    console.log('updating state');
                     this.setState({ currentTime : new Date().toTimeString() });
                 }, 1000);
             }
+
             componentWillUnmount(){
                 console.log('Timer unmounted');
                 clearInterval(this.timerId);
+            }
+            shouldComponentUpdate(nextProps, nextState){
+                return true;
             }
             render() {
                 return(
