@@ -255,3 +255,16 @@ JSX
     Every open tag MUST have the corresponding closing tag
     Use 'htmlFor' instead of 'for' attribute
     use 'className' instead of 'class' attribute
+
+Component Lifecycle Events
+    mounting
+        - componentWillMount
+        - componentDidMount
+
+    updating
+        - componentShouldUpdate
+        - componentWillUpdate
+        - render
+
+    unmounting
+        - componentWillUnmount
