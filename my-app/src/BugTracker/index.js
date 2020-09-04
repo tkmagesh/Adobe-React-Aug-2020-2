@@ -8,7 +8,7 @@ const BugTracker = () => {
     const bugs = useSelector(storeState => storeState.bugsData);
     const dispatch = useDispatch();
 
-    const { addNew, load } = bindActionCreators(bugActionCreators, dispatch);
+    const { addNew, load, toggle } = bindActionCreators(bugActionCreators, dispatch);
     const [newBugName, setNewBugName] = useState('');
 
     useEffect(() => {
@@ -41,7 +41,11 @@ const BugTracker = () => {
                 <ol>
                     { bugs.map(bug => (
                             <li key={bug.id}>
-                                <div className="bugname">{bug.name}</div>
+                                <div 
+                                    className={'bugname ' + (bug.isClosed ? 'closed' : '')} 
+                                    onClick={() => toggle(bug)}>
+                                    {bug.name}
+                                </div>
                                 <div className="datetime">[{bug.createdAt.toString()}]</div>
                                 <a href="#">More...</a>
                                 <br/>
