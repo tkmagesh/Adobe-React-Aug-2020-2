@@ -344,3 +344,47 @@ Use Cases
 9. Make the bugs accessible using unique urls
 10. Test the application
 11. Package and deployment
+
+
+react-router-dom
+
+    Routes
+
+
+Handling Asynchronous Operations
+    1. Callback
+    2. Events 
+    3. Promise
+    4. Async Await
+    5. Generators
+    6. Observables
+
+Using Promise
+=====================================
+function getBugs(){
+    var p = axios.get('http://localhost:3030/bugs');
+    var p2 = p.then(function(response){
+        return response.data;
+    });
+    return p2;
+}
+
+function displayBugs(){
+    var p = getBugs();
+    p.then(function(bugs){
+        console.table(bugs);
+    });
+}
+
+
+Using Async Await
+======================================
+async function getBugs(){
+    const response = await axios.get('http://localhost:3030/bugs');
+    return response.data;
+}
+
+async function displayBugs(){
+    var bugs = await getBugs();
+    console.table(bugs);
+}

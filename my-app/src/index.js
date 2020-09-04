@@ -14,6 +14,9 @@ import {
   Link
 } from "react-router-dom";
 
+import axios from 'axios';
+window['axios'] = axios;
+
 
 /* 
 function renderApp() {
