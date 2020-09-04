@@ -8,6 +8,9 @@ function bugsReducer(currentState = initialState, action){
         const newState = [...currentState, action.payload];
         return newState;
     }
+    if (action.type === 'INIT_BUGS'){
+        return action.payload;
+    }
     return currentState;
 }
 
