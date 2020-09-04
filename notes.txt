@@ -292,3 +292,41 @@ When you manage the state in the component
     - we are localizing the state for that component and its children
         Any change to that state can be easily recognized that that component or its children
         Recognizing the state changes by any other component will be very diffcult
+
+Webpack
+
+create-react-app
+
+sudo npm install yarn -g
+
+npx
+
+ES6 Modules (import * export )
+
+/* 
+import * as calc from './calculator';
+console.log(calc);
+*/
+
+/* 
+import * as calc from './calculator';
+const { add } = calc; 
+*/
+
+/* 
+import { add } from './calculator';
+ */
+
+//importing the default exported object
+/* 
+import calc from './calculator'; 
+*/
+
+/* 
+import calc, * as calculator from './calculator'; 
+console.log(calc, calculator);
+*/
+
+/* 
+import calc, { add } from './calculator';  
+*/

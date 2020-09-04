@@ -10,7 +10,11 @@
     <script src="react-dom.development.js"></script>
     <script src="babel.min.js"></script>
     <script>
-        function createActionDispatchers(actionCreators, dispatch) {
+       
+
+    </script>
+    <script type="text/babel">
+         function createActionDispatchers(actionCreators, dispatch) {
             const actionDispatchers = {};
             for (let key in actionCreators) {
                 actionDispatchers[key] = function (...args) {
@@ -20,9 +24,7 @@
             }
             return actionDispatchers;
         }
-
-    </script>
-    <script type="text/babel">
+        
         function spinnerReducer(currentState = 0, action){
             if (action.type === 'UP') return currentState + action.payload;
             if (action.type === 'DOWN') return currentState - action.payload;
