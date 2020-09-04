@@ -5,14 +5,25 @@ import './index.css';
 import * as serviceWorker from './serviceWorker';
 import store from './store'
 import Spinner from './Spinner';
+import { Provider } from react-redux;
 
+/* 
 function renderApp() {
   const value = store.getState();
   ReactDOM.render(<Spinner value={value} dispatch={store.dispatch}  />
     , document.getElementById('root'));
 }
 renderApp();
-store.subscribe(renderApp);
+store.subscribe(renderApp); 
+*/
+
+ReactDOM.render(
+  <Provider store={store}>
+    <Spinner/>
+  </Provider>
+  , document.getElementById('root')
+);
+
 
 /* ReactDOM.render(
   <React.StrictMode>
