@@ -5,7 +5,8 @@ import './index.css';
 import * as serviceWorker from './serviceWorker';
 import store from './store'
 import Spinner from './Spinner';
-import { Provider } from react-redux;
+import { Provider } from 'react-redux';
+import BugTracker from './BugTracker';
 
 /* 
 function renderApp() {
@@ -19,7 +20,7 @@ store.subscribe(renderApp);
 
 ReactDOM.render(
   <Provider store={store}>
-    <Spinner/>
+    <BugTracker/>
   </Provider>
   , document.getElementById('root')
 );

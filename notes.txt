@@ -330,3 +330,17 @@ console.log(calc, calculator);
 /* 
 import calc, { add } from './calculator';  
 */
+
+Bug Tracker
+Use Cases
+1. Add new bugs
+2. List the added bugs
+3. Remove any bug
+4. Toggle the 'closed' status of any bug
+5. Remove closed bugs
+6. Display stats (# of closed bugs / total # of bugs)
+7. Sort the bugs (assignment)
+8. Persist the bugs in the server
+9. Make the bugs accessible using unique urls
+10. Test the application
+11. Package and deployment
