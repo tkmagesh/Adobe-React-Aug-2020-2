@@ -7,6 +7,14 @@ function getLocalBugs(){
     ];
 }
 
+function getRemoteBugs() {
+    var p = axios.get('http://localhost:3030/bugs');
+    var p2 = p.then(function (response) {
+        return response.data;
+    });
+    return p2;
+}
+
 function load(){
     const bugs = getLocalBugs();
     const action = { type : 'INIT_BUGS', payload : bugs };
