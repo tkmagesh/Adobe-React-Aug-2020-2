@@ -11,7 +11,7 @@ const Spinner = () => {
 
     return (
         <div>
-            <h1>Spinner</h1>
+            <h3>Spinner</h3>
             <hr />
             <label>Delta : </label>
             <input type="number" value={delta} onChange={evt => setDelta(evt.target.valueAsNumber || 0)} />

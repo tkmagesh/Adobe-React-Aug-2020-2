@@ -12,7 +12,7 @@ const BugTracker = () => {
     const [newBugName, setNewBugName] = useState('');
     return (
         <div>
-            <h1>Bug Tracker</h1>
+            <h3>Bug Tracker</h3>
             <hr />
             <section className="stats">
                 <span className="closed">1</span>
