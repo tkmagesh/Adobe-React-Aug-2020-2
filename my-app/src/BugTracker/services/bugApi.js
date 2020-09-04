@@ -22,8 +22,8 @@ async function save(bugData){
     }
 }
 
-async function remove(id){
-    const response = await axios.delete(`${serviceEndPoint}/${id}`);
+async function remove(bug){
+    const response = await axios.delete(`${serviceEndPoint}/${bug.id}`);
     return response.data;
 }
 

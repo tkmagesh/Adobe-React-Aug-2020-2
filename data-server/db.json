@@ -1,12 +1,6 @@
 {
   "bugs": [
     {
-      "id": 1,
-      "name": "Application is not responding",
-      "isClosed": true,
-      "createdAt": "2020-08-29T06:15:01.943Z"
-    },
-    {
       "id": 2,
       "name": "Data integrity checks failed",
       "isClosed": false,

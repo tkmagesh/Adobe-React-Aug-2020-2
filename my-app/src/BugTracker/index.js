@@ -8,7 +8,7 @@ const BugTracker = () => {
     const bugs = useSelector(storeState => storeState.bugsData);
     const dispatch = useDispatch();
 
-    const { addNew, load, toggle } = bindActionCreators(bugActionCreators, dispatch);
+    const { addNew, load, toggle, remove } = bindActionCreators(bugActionCreators, dispatch);
     const [newBugName, setNewBugName] = useState('');
 
     useEffect(() => {
@@ -49,7 +49,7 @@ const BugTracker = () => {
                                 <div className="datetime">[{bug.createdAt.toString()}]</div>
                                 <a href="#">More...</a>
                                 <br/>
-                                <input type="button" value="Remove" />
+                                <input type="button" value="Remove" onClick={() => remove(bug)} />
                             </li>
                         ))
                     }
