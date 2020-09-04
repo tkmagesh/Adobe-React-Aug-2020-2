@@ -8,7 +8,7 @@ const BugTracker = () => {
     const bugs = useSelector(storeState => storeState.bugsData);
     const dispatch = useDispatch();
 
-    const { addNew, load, toggle, remove } = bindActionCreators(bugActionCreators, dispatch);
+    const { addNew, load, toggle, remove, removeClosed } = bindActionCreators(bugActionCreators, dispatch);
     const [newBugName, setNewBugName] = useState('');
 
     useEffect(() => {
@@ -54,7 +54,7 @@ const BugTracker = () => {
                         ))
                     }
                 </ol>
-                <input type="button" value="Remove Closed" />
+                <input type="button" value="Remove Closed" onClick={removeClosed} />
             </section>
         </div>
     );
