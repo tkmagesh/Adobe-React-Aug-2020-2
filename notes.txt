@@ -388,3 +388,6 @@ async function displayBugs(){
     var bugs = await getBugs();
     console.table(bugs);
 }
+
+yarn add redux-thunk
+    include the middleware in store/index.js

@@ -1,4 +1,5 @@
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 
 import spinnerReducer from '../reducers/spinnerReducer';
 import bugsReducer from '../reducers/bugsReducer';
@@ -8,7 +9,6 @@ const rootReducer = combineReducers({
     bugsData : bugsReducer
 });
 
-const store = createStore(rootReducer);
+const store = createStore(rootReducer, applyMiddleware(thunk));
 
-console.log(store.getState());
 export default store;

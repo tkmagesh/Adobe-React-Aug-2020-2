@@ -15,10 +15,20 @@ function getRemoteBugs() {
     return p2;
 }
 
-function load(){
-    const bugs = getLocalBugs();
-    const action = { type : 'INIT_BUGS', payload : bugs };
-    return action;
+/* function load(){
+    return function(dispatch){
+        const p = getRemoteBugs();
+        p.then(function(bugs){
+            const action = { type: 'INIT_BUGS', payload: bugs };
+            dispatch(action);
+        })
+    }
+} */
+
+const load = () => async (dispatch) => {
+    const bugs = await getRemoteBugs();
+    const action = { type: 'INIT_BUGS', payload: bugs };
+    dispatch(action);
 }
 
 export default load;
