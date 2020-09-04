@@ -20,6 +20,7 @@ store.subscribe(renderApp);
 
 ReactDOM.render(
   <Provider store={store}>
+    <Spinner/>
     <BugTracker/>
   </Provider>
   , document.getElementById('root')

@@ -1,7 +1,14 @@
-import { createStore } from 'redux';
+import { createStore, combineReducers } from 'redux';
 
 import spinnerReducer from '../reducers/spinnerReducer';
+import bugsReducer from '../reducers/bugsReducer';
 
-var store = createStore(spinnerReducer);
+const rootReducer = combineReducers({
+    spinnerData : spinnerReducer,
+    bugsData : bugsReducer
+});
 
+const store = createStore(rootReducer);
+
+console.log(store.getState());
 export default store;

@@ -4,7 +4,7 @@ import spinnerActionCreators from './actions';
 import { useSelector, useDispatch } from 'react-redux';
 
 const Spinner = () => {
-    const value = useSelector(storeState => storeState);
+    const value = useSelector(storeState => storeState.spinnerData);
     const dispatch = useDispatch();
     const [delta, setDelta] = useState(0);
     const { up, down } = bindActionCreators(spinnerActionCreators, dispatch);
