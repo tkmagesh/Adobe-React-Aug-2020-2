@@ -1,12 +1,5 @@
 {
-  "bugs": [
-    {
-      "id": 3,
-      "name": "Server communication failure",
-      "isClosed": false,
-      "createdAt": "2020-08-29T09:06:15.127Z"
-    }
-  ],
+  "bugs": [],
   "projects": [
     {
       "id": 1,
