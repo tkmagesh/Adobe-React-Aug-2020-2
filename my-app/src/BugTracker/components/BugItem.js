@@ -8,7 +8,7 @@ const BugItem = ({ bug, toggle, remove }) => (
             {bug.name}
         </div>
         <div className="datetime">[{bug.createdAt.toString()}]</div>
-        <a href="#">More...</a>
+        <a>More...</a>
         <br />
         <input type="button" value="Remove" onClick={() => remove(bug)} />
     </li>

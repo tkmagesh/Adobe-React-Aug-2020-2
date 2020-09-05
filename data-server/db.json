@@ -4,7 +4,8 @@
       "id": 1,
       "name": "This is a new bug",
       "isClosed": true,
-      "createdAt": "2020-09-05T04:40:47.470Z"
+      "createdAt": "2020-09-05T04:40:47.470Z",
+      "project_id" : 1
     },
     {
       "id": 2,

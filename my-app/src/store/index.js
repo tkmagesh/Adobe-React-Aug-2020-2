@@ -7,10 +7,16 @@ import bugsReducer from '../reducers/bugsReducer';
 
 const rootReducer = combineReducers({
     spinnerData : spinnerReducer,
-    bugsData : bugsReducer
+    bugsData : bugsReducer,
+    userData : userReducer
 });
 
-function loggerMiddleware(store){
+/* userState = { 
+    isLoggedIn : false,
+    userInfo : null
+}*/
+
+/* function loggerMiddleware(store){
     return function(next){
         return function(action){
             console.group(action.type);
@@ -25,7 +31,7 @@ function loggerMiddleware(store){
             console.groupEnd();
         }
     }
-}
+} */
 
 /* function asyncMiddleware(store){
     return function(next){
@@ -39,14 +45,14 @@ function loggerMiddleware(store){
     }
 } */
 
-const asyncMiddleware = ({dispatch, getState}) => next => {
+/* const asyncMiddleware = ({dispatch, getState}) => next => {
     return action => {
         if (typeof action === 'function'){
             return action(dispatch, getState);
         }
         return next(action);
     }
-}
+} */
 
 const promiseActionMiddleware = ({ dispatch, getState}) => next => async action => {
     if (action instanceof Promise){
@@ -56,6 +62,6 @@ const promiseActionMiddleware = ({ dispatch, getState}) => next => async action 
     return next(action);
 }
 
-const store = createStore(rootReducer, applyMiddleware(logger, asyncMiddleware, promiseActionMiddleware));
+const store = createStore(rootReducer, applyMiddleware(logger, thunk, promiseActionMiddleware));
 
 export default store;

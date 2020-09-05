@@ -398,3 +398,13 @@ Web Sockets
 
 Server Sent Events
     unidirectional
+
+Middleware
+    functions to handle responsibilities that are common across all the actions
+
+
+
+Contact:
+
+tkmagesh77@gmail.com
+99019-11221
