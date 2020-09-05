@@ -391,3 +391,10 @@ async function displayBugs(){
 
 yarn add redux-thunk
     include the middleware in store/index.js
+
+
+Web Sockets
+    bi-directional
+
+Server Sent Events
+    unidirectional

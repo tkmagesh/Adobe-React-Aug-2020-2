@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import './index.css';
 import { useSelector, useDispatch } from 'react-redux';
 import bugActionCreators from './actions'
@@ -14,9 +14,7 @@ const BugTracker = () => {
     const dispatch = useDispatch();
     const { addNew, load, toggle, remove, removeClosed } = bindActionCreators(bugActionCreators, dispatch);
 
-    useEffect(() => {
-        load();
-    },[]);
+    useEffect(load,[]);
     return (
         <div>
             <h3>Bug Tracker</h3>
