@@ -33,10 +33,18 @@ function getLocalBugs(){
 
 import bugApi from '../services/bugApi';
 
-const load = () => async (dispatch) => {
+//the below is processed by the thunk middleware
+/* const load = () => async (dispatch) => {
     const bugs = await bugApi.getAll();
     const action = { type: 'INIT_BUGS', payload: bugs };
     dispatch(action);
+} */
+
+//the below is processed by promiseActionMiddleware
+async function load(){
+    const bugs = await bugApi.getAll();
+    const action = { type: 'INIT_BUGS', payload: bugs };
+    return action;
 }
 
 export default load;

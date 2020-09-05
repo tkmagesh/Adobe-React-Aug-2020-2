@@ -40,7 +40,6 @@ function loggerMiddleware(store){
 } */
 
 const asyncMiddleware = ({dispatch, getState}) => next => {
-    console.log(next);
     return action => {
         if (typeof action === 'function'){
             return action(dispatch, getState);
@@ -49,6 +48,14 @@ const asyncMiddleware = ({dispatch, getState}) => next => {
     }
 }
 
-const store = createStore(rootReducer, applyMiddleware(logger, asyncMiddleware));
+const promiseActionMiddleware = ({ dispatch, getState}) => next => async action => {
+    if (action instanceof Promise){
+        const actionObj = await action;
+        return dispatch(actionObj);
+    }
+    return next(action);
+}
+
+const store = createStore(rootReducer, applyMiddleware(logger, asyncMiddleware, promiseActionMiddleware));
 
 export default store;
